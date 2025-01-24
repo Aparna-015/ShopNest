@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 const Products = ({ products }) => {
  
 
-  const { id,title, price, description, image, category, rating } = products;
+  const { id,title,  image} = products;
   const navigate=useNavigate()
 
   const handledetails=(id)=>{
