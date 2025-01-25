@@ -12,10 +12,20 @@ const Productdetails = () => {
 
   useEffect(() => {
 
-    axios.get(`https://fakestoreapi.com/products/${id}`)
+    if(id){
+
+  axios.get(`https://fakestoreapi.com/products/${id}`)
 
       .then((res) =>{
      setProduct(res.data)});
+    }
+    
+    else{
+      <div>
+        <h1> No data found</h1>
+      </div>
+
+    }
 
   }, [id]);
 

@@ -24,7 +24,7 @@ const Home = () => {
   
 <div className="container bg-gray-200 flex flex-wrap justify-center w-full rounded-lg p-8	">
 
-{data.map((item)=>(
+{data?.map((item)=>(
     
     <Products  products={item}/>
 
