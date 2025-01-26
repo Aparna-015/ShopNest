@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 
 const Products = ({ products }) => {
  
@@ -8,14 +9,18 @@ const Products = ({ products }) => {
   const navigate=useNavigate()
 
   const handledetails=(id)=>{
-console.log(id,"id");
+// console.log(id,"id");
 
 navigate(`/product/${id}`)
 
   }
 
   return (
+
+    
     <div className=" section bg-white m-5 p-5 w-1/5  ">
+
+     
       <h1 className="font-bold">{title}</h1>
 
       <div className="flex justify-center m-2 p-2">
@@ -28,6 +33,7 @@ navigate(`/product/${id}`)
         </button>
        
     </div>
+
   );
 };
 
