@@ -1,5 +1,6 @@
-import React, {  useEffect, useState } from "react";
+import React, {  useContext, useEffect, useState } from "react";
 import Products from "../Components/Products";
+import { Context } from "../Context/Themecontext";
 
 
 // import {AppContext } from '../Context/Context'
@@ -8,11 +9,13 @@ const Home = () => {
 
 // const context =useContext(AppContext)
 // console.log(context);
+  const {theme, Toggle}=useContext(Context)
 
 
   const[searchresult,setSearchresult]=useState([])
   const [data, setData] = useState([]);
   const[searchdata,setSearchdata]=useState("")
+  
   console.log(searchdata)
   console.log(data)
   console.log(searchresult)
@@ -53,15 +56,17 @@ const Home = () => {
           onChange={(e) => setSearchdata(e.target.value)}
         />
       </div>
+     
 
       {searchresult.length > 0 ? (
-        <div className="container text-center bg-gray-200 flex flex-wrap justify-center w-full rounded-lg p-8">
+        <div className="container text-center bg-white flex flex-wrap justify-center w-full rounded-lg p-8" style={{backgroundColor :theme==="light"?"white" : "black" }}>
           {searchresult.map((item) => (
             <Products key={item.id} products={item} />
           ))}
+           <button >---</button> 
         </div>
       ) : (
-        <div className="container text-center bg-gray-200 flex flex-wrap justify-center w-full rounded-lg p-8">
+        <div className="container text-center bg-red-200 flex flex-wrap justify-center w-full rounded-lg p-8">
           {data.map((item) => (
             <Products key={item.id} products={item} />
           ))}

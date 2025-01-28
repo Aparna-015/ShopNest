@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
  import { IoCartOutline } from "react-icons/io5";
  import { BsSearch } from "react-icons/bs";
 
@@ -25,6 +25,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { Context } from '../Context/Themecontext';
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -44,8 +45,10 @@ export default function Example() {
   
   console.log(search)
 
+const {theme,Toggle}=useContext(Context)
+
   return (
-    <header className="bg-green-600 text-white">
+    <header  className='bg-green-400' style={{ backgroundColor: theme === "light" ? "white" : "black" }} >
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
@@ -139,11 +142,14 @@ export default function Example() {
 
 
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end m-2 ">
           <a href="#" className="text-sm/6 font-semibold text-white ">
            <IoCartOutline className='w-auto' /> 
           {/* <span aria-hidden="true">&rarr;</span> */}
           </a>
+        </div>
+        <div>
+          <button onClick={Toggle}  className='bg-gray-500 p-2 rounded-md' > on</button>
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
