@@ -24,10 +24,10 @@ const Home = () => {
 
   useEffect(() => {
     if (searchdata === "") {
-      setSearchresult(data); // Show all products when search is empty
+      setSearchresult(data); 
     } else {
       const filteredData = data.filter((item) =>
-        item.title.toLowerCase().includes(searchdata.toLowerCase()) // Case-insensitive match
+        item.title.toLowerCase().includes(searchdata.toLowerCase()) 
       );
       setSearchresult(filteredData);
     }
@@ -63,7 +63,7 @@ const Home = () => {
           {searchresult.map((item) => (
             <Products key={item.id} products={item} />
           ))}
-           <button >---</button> 
+     
         </div>
       ) : (
         <div className="container text-center bg-red-200 flex flex-wrap justify-center w-full rounded-lg p-8">
