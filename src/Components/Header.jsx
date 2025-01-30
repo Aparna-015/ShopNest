@@ -72,9 +72,12 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [search, setSearch] = useState();
 
-  console.log(search);
+      
+  // console.log(search);
 
   const { theme, Toggle } = useContext(Context);
+  const{searchitem,setSearchitems}  =useContext(Searchcontext)
+
 
   return (
     <header
@@ -174,8 +177,8 @@ export default function Example() {
                 type="text"
                 className="w-full p-1 text-black border border-gray-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                value={searchitem}
+                onChange={(e) => setSearchitems(e.target.value)}
               />
               <button className=" w-[50px] p-1 bg-blue-500 text-white border border-blue-500 rounded-r-lg hover:bg-blue-600 transition duration-200">
                 <BsSearch className="text-white" />

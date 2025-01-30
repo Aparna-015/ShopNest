@@ -7,12 +7,14 @@ import Cart from "./Pages/Cart";
 import Footersection from "./Components/Footer";
 import Example from "./Components/Header";
 import Themecontext from "./Context/Themecontext";
+import Search from "./Context/Searchcontext";
 
 // import { Context } from './Context/Context';
 
 function App() {
   return (
     <div className="App">
+      <Search>
       <Themecontext>
         <Example />
         <Router>
@@ -24,6 +26,7 @@ function App() {
         </Router>
         <Footersection />
       </Themecontext>
+      </Search>
     </div>
   );
 }

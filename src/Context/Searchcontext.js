@@ -1,13 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-const Searchcontext= createContext()
+const Searchcontext = createContext();
 
-const Search=()=>{
+const Search = ({ Children }) => {
+  const [searchdata, setSearchdata] = useState([]);
+  
+  const [data, setData] = useState([]);
 
-    const [searchdata,setSearchdata]=useState()
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((result) => setData(result));
+  }, []);
 
+  return (
+    <Searchcontext.Provider value={{ searchdata, setSearchdata, data }}>
 
+      {Children}
+    </Searchcontext.Provider>
+  );
+};
 
-}
-
-export default Search
+export default Search;
