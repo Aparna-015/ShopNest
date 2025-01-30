@@ -10,9 +10,7 @@ const Themecontext = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ theme, Toggle }}>
-      {children}
-    </Context.Provider>
+    <Context.Provider value={{ theme, Toggle }}>{children}</Context.Provider>
   );
 };
 

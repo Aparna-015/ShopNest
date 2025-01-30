@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { useContext, useState } from 'react'
- import { IoCartOutline } from "react-icons/io5";
- import { BsSearch } from "react-icons/bs";
+import { useContext, useState } from "react";
+import { IoCartOutline } from "react-icons/io5";
+import { BsSearch } from "react-icons/bs";
 
 import {
   Dialog,
@@ -14,7 +14,7 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-} from '@headlessui/react'
+} from "@headlessui/react";
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -23,33 +23,68 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { Context } from '../Context/Themecontext';
+} from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  PhoneIcon,
+  PlayCircleIcon,
+} from "@heroicons/react/20/solid";
+import { Context } from "../Context/Themecontext";
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
+  {
+    name: "Analytics",
+    description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Engagement",
+    description: "Speak directly to your customers",
+    href: "#",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Security",
+    description: "Your customers’ data will be safe and secure",
+    href: "#",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "Integrations",
+    description: "Connect with third-party tools",
+    href: "#",
+    icon: SquaresPlusIcon,
+  },
+  {
+    name: "Automations",
+    description: "Build strategic funnels that will convert",
+    href: "#",
+    icon: ArrowPathIcon,
+  },
+];
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
+  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
+  { name: "Contact sales", href: "#", icon: PhoneIcon },
+];
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [search,setSearch]=useState();
-  
-  console.log(search)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [search, setSearch] = useState();
 
-const {theme,Toggle}=useContext(Context)
+  console.log(search);
+
+  const { theme, Toggle } = useContext(Context);
 
   return (
-    <header  className='bg-green-400' style={{ backgroundColor: theme === "light" ? "white" : "black" }} >
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <header
+      className="bg-green-400"
+      style={{ backgroundColor: theme === "light" ? "white" : "black" }}
+    >
+      <nav
+        aria-label="Global"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+      >
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
@@ -88,10 +123,16 @@ const {theme,Toggle}=useContext(Context)
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                   >
                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                      <item.icon
+                        aria-hidden="true"
+                        className="size-6 text-gray-600 group-hover:text-indigo-600"
+                      />
                     </div>
                     <div className="flex-auto">
-                      <a href={item.href} className="block font-semibold text-gray-900">
+                      <a
+                        href={item.href}
+                        className="block font-semibold text-gray-900"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -107,7 +148,10 @@ const {theme,Toggle}=useContext(Context)
                     href={item.href}
                     className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
                   >
-                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                    <item.icon
+                      aria-hidden="true"
+                      className="size-5 flex-none text-gray-400"
+                    />
                     {item.name}
                   </a>
                 ))}
@@ -124,35 +168,39 @@ const {theme,Toggle}=useContext(Context)
           <a href="#" className="text-sm/6 font-semibold text-white">
             Company
           </a> */}
-        <div className="flex col-span-10 justify-center items-center text-center ">
-  <div className="flex w-[500px] max-w-lg">
-    <input
-      type="text"
-      className="w-full p-1 text-black border border-gray-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-      placeholder="Search"
-    
-      value={search}
-      onChange={(e)=>setSearch(e.target.value)}
-      />
-    <button className=" w-[50px] p-1 bg-blue-500 text-white border border-blue-500 rounded-r-lg hover:bg-blue-600 transition duration-200">
-      <BsSearch className="text-white" />
-    </button>
-  </div>
-</div>
-
-
+          <div className="flex col-span-10 justify-center items-center text-center ">
+            <div className="flex w-[500px] max-w-lg">
+              <input
+                type="text"
+                className="w-full p-1 text-black border border-gray-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button className=" w-[50px] p-1 bg-blue-500 text-white border border-blue-500 rounded-r-lg hover:bg-blue-600 transition duration-200">
+                <BsSearch className="text-white" />
+              </button>
+            </div>
+          </div>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end m-2 ">
           <a href="#" className="text-sm/6 font-semibold text-white ">
-           <IoCartOutline className='w-auto' /> 
-          {/* <span aria-hidden="true">&rarr;</span> */}
+            <IoCartOutline className="w-auto" />
+            {/* <span aria-hidden="true">&rarr;</span> */}
           </a>
         </div>
         <div>
-          <button onClick={Toggle}  className='bg-gray-500 p-2 rounded-md' > on</button>
+          <button onClick={Toggle} className="bg-gray-500 p-2 rounded-md">
+            {" "}
+            on
+          </button>
         </div>
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <Dialog
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+        className="lg:hidden"
+      >
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -179,7 +227,10 @@ const {theme,Toggle}=useContext(Context)
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                     Product
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none group-data-open:rotate-180"
+                    />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
                     {[...products, ...callsToAction].map((item) => (
@@ -226,5 +277,5 @@ const {theme,Toggle}=useContext(Context)
         </DialogPanel>
       </Dialog>
     </header>
-  )
+  );
 }

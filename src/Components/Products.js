@@ -26,7 +26,6 @@ navigate(`/product/${id}`)
       <div className="flex justify-center m-2 p-2">
         <img src={image} alt="" width="100px" className="" />
       </div>
-     
 
         <button  onClick={()=>handledetails(id)}  className="bg-pink-500 mr-2 p-2 border border-spacing-2 text-white rounded-md ">
           View details
