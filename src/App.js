@@ -14,8 +14,9 @@ import Search from "./Context/Searchcontext";
 function App() {
   return (
     <div className="App">
-      <Search>
+     
       <Themecontext>
+      <Search>
         <Example />
         <Router>
           <Routes>
@@ -25,8 +26,9 @@ function App() {
           </Routes>
         </Router>
         <Footersection />
+        </Search>
       </Themecontext>
-      </Search>
+    
     </div>
   );
 }

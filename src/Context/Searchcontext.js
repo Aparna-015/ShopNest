@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 
-const Searchcontext = createContext();
+export const Searchcontext = createContext();
 
-const Search = ({ Children }) => {
-  const [searchdata, setSearchdata] = useState([]);
-  
+const Search = ({ children }) => {
+  const [searchdata, setSearchdata] = useState("");
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Search = ({ Children }) => {
   return (
     <Searchcontext.Provider value={{ searchdata, setSearchdata, data }}>
 
-      {Children}
+      {children}
     </Searchcontext.Provider>
   );
 };

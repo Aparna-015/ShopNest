@@ -30,6 +30,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import { Context } from "../Context/Themecontext";
+import { Searchcontext } from "../Context/Searchcontext";
 
 const products = [
   {
@@ -70,19 +71,19 @@ const callsToAction = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [search, setSearch] = useState();
+  
 
       
   // console.log(search);
 
   const { theme, Toggle } = useContext(Context);
-  const{searchitem,setSearchitems}  =useContext(Searchcontext)
+  const{searchdata,setSearchdata,data}  =useContext(Searchcontext)
 
 
   return (
     <header
-      className="bg-green-400"
-      style={{ backgroundColor: theme === "light" ? "white" : "black" }}
+      className="bg-green-200"
+      style={{ backgroundColor: theme === "light" ? "green" : "black" }}
     >
       <nav
         aria-label="Global"
@@ -177,8 +178,8 @@ export default function Example() {
                 type="text"
                 className="w-full p-1 text-black border border-gray-400 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search"
-                value={searchitem}
-                onChange={(e) => setSearchitems(e.target.value)}
+                 value={searchdata}
+                 onChange={(e) => setSearchdata(e.target.value)}
               />
               <button className=" w-[50px] p-1 bg-blue-500 text-white border border-blue-500 rounded-r-lg hover:bg-blue-600 transition duration-200">
                 <BsSearch className="text-white" />
