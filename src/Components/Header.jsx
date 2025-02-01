@@ -77,7 +77,7 @@ export default function Example() {
   // console.log(search);
 
   const { theme, Toggle } = useContext(Context);
-  const{searchdata,setSearchdata,data}  =useContext(Searchcontext)
+  const{searchdata,setSearchdata}  =useContext(Searchcontext)
 
 
   return (

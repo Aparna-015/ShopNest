@@ -3,39 +3,29 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Productdetails = () => {
-  
-
- 
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-  
 
   useEffect(() => {
+    if (id) {
+      axios
+        .get(`https://fakestoreapi.com/products/${id}`)
 
-    if(id){
-
-  axios.get(`https://fakestoreapi.com/products/${id}`)
-
-      .then((res) =>{
-     setProduct(res.data)});
-    }
-    
-    else{
+        .then((res) => {
+          setProduct(res.data);
+        });
+    } else {
       <div>
         <h1> No data found</h1>
-      </div>
-
+      </div>;
     }
-
   }, [id]);
-
 
   const navigate = useNavigate();
 
   const handleCartitems = () => {
     navigate(`/cart/${id}`);
   };
-
 
   return (
     <div className=" w-full bg-gray-300 flex flex-col items-center min-h-screen  ">
@@ -57,7 +47,7 @@ const Productdetails = () => {
             </div>
           </div>
           <button
-            onClick={ handleCartitems}
+            onClick={handleCartitems}
             className="bg-blue-700 w-28 text-white text-center p-2 rounded-lg mb-4 "
           >
             Add to cart
